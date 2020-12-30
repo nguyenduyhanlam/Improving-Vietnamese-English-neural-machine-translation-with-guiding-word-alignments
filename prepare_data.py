@@ -5,24 +5,34 @@ Created on Wed Dec 23 10:12:54 2020
 @author: lam.nguyen
 """
 import nltk
-#nltk.download('all')
 from nltk.tokenize import word_tokenize
-from nltk import AlignedSent
-from nltk import IBMModel1
+import html
+import re
 
 SOURCE_FILE = 'data/train.clean.vi'
 TARGET_FILE = 'data/train.clean.en'
 COMBINE_FILE = 'data/train.clean.vi-en'
 
+# Normalize the string (marks and words are seperated, words don't contain accents,...)
+def normalizeString(s):
+    s = html.unescape(s)
+    # Seperate words and marks by adding spaces between them
+    marks = '[.!?,-${}()]'
+    r = "(["+"\\".join(marks)+"])"
+    s = re.sub(r, r" \1 ", s)
+    # replace continuous spaces with a single space
+    s = re.sub(r"\s+", r" ", s).strip()
+    return s
+
 source_text = []
 with open(SOURCE_FILE, encoding="utf8") as file:
     for line in file:
-        source_text.append(line)
+        source_text.append(normalizeString(line))
 
 target_text = []
 with open(TARGET_FILE, encoding='utf8') as file:
     for line in file:
-        target_text.append(line)
+        target_text.append(normalizeString(line))
 
 def InsertSpace(token):
     result = ''
