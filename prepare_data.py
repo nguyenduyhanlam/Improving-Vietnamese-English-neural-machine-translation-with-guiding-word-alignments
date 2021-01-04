@@ -12,6 +12,8 @@ import re
 SOURCE_FILE = 'data/train.clean.vi'
 TARGET_FILE = 'data/train.clean.en'
 COMBINE_FILE = 'data/train.clean.vi-en'
+SOURCE_CLEAN_FILE = 'data/train.vi'
+TARGET_CLEAN_FILE = 'data/train.en'
 
 # Normalize the string (marks and words are seperated, words don't contain accents,...)
 def normalizeString(s):
@@ -56,4 +58,14 @@ print(combine_text[0])
 # Print to file
 with open(COMBINE_FILE, 'w', encoding='utf8') as file:
     for item in combine_text:
+        file.write("%s\n" % item)
+        
+# Print to file
+with open(SOURCE_CLEAN_FILE, 'w', encoding='utf8') as file:
+    for item in source_text:
+        file.write("%s\n" % item)
+
+# Print to file
+with open(TARGET_CLEAN_FILE, 'w', encoding='utf8') as file:
+    for item in target_text:
         file.write("%s\n" % item)
