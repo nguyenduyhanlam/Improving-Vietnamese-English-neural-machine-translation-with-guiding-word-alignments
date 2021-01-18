@@ -5,6 +5,7 @@ Created on Wed Dec 23 10:12:54 2020
 @author: lam.nguyen
 """
 import nltk
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 import html
 import re
@@ -12,8 +13,8 @@ import re
 SOURCE_FILE = 'data/train.clean.vi'
 TARGET_FILE = 'data/train.clean.en'
 COMBINE_FILE = 'data/train.clean.vi-en'
-SOURCE_CLEAN_FILE = 'data/train.vi'
-TARGET_CLEAN_FILE = 'data/train.en'
+SOURCE_PREPARED_FILE = 'data/train.prepared.vi'
+TARGET_PREPARED_FILE = 'data/train.prepared.en'
 
 # Normalize the string (marks and words are seperated, words don't contain accents,...)
 def normalizeString(s):
@@ -61,11 +62,11 @@ with open(COMBINE_FILE, 'w', encoding='utf8') as file:
         file.write("%s\n" % item)
         
 # Print to file
-with open(SOURCE_CLEAN_FILE, 'w', encoding='utf8') as file:
+with open(SOURCE_PREPARED_FILE, 'w', encoding='utf8') as file:
     for item in source_text:
         file.write("%s\n" % item)
 
 # Print to file
-with open(TARGET_CLEAN_FILE, 'w', encoding='utf8') as file:
+with open(TARGET_PREPARED_FILE, 'w', encoding='utf8') as file:
     for item in target_text:
         file.write("%s\n" % item)

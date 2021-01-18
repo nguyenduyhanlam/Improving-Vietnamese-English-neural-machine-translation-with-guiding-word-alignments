@@ -1,0 +1,13 @@
+# The result location
+save_data: result/sample
+# The vocabulary location
+src_vocab: vocabulary/train.prepared.vocab.vi
+tgt_vocab: vocabulary/train.prepared.vocab.en
+# Overwrite the old files?
+overwrite: True
+
+# Corpus location
+data:
+    corpus_1:
+        path_src: train.prepared.vi
+        path_tgt: train.prepared.en
