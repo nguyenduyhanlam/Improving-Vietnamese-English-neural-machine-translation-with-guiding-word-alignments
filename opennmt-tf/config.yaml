@@ -11,3 +11,6 @@ data:
     corpus_1:
         path_src: train.prepared.vi
         path_tgt: train.prepared.en
+    valid:
+        path_src: tst2012.prepared.vi
+        path_tgt: tst2012.prepared.en
