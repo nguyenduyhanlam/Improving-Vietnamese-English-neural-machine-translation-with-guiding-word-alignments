@@ -1,8 +1,6 @@
-# The result location
-save_data: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/result/sample
 # The vocabulary location
-src_vocab: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/vocabulary/train.prepared.vocab.vi
-tgt_vocab: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/vocabulary/train.prepared.vocab.en
+src_vocab: /content/drive/MyDrive/opennmt-tf/vocabulary/train.prepared.vocab.vi
+tgt_vocab: /content/drive/MyDrive/opennmt-tf/vocabulary/train.prepared.vocab.en
 # Overwrite the old files?
 overwrite: True
 
