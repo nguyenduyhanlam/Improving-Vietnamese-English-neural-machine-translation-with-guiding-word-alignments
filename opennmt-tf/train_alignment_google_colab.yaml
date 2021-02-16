@@ -17,8 +17,8 @@ world_size: 1
 gpu_ranks: [0]
 
 # Where to save the checkpoints
-save_model: /content/drive/MyDrive/opennmt-tf/result
-save_checkpoint_steps: 1000
+save_model: /content/drive/MyDrive/opennmt-tf/result/model
+save_checkpoint_steps: 20000
 keep_checkpoint: 10
 seed: 3435
 train_steps: 20000
