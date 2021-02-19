@@ -11,7 +11,11 @@ data:
     valid:
         path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.vi
         path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.en
-        
+
+params:
+  guided_alignment_type: ce
+  guided_alignment_weight: 1
+
 # Train on a single GPU
 world_size: 1
 gpu_ranks: [0]
