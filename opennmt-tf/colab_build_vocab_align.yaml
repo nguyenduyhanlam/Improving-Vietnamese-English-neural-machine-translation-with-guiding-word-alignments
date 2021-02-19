@@ -1,0 +1,22 @@
+# The result location
+save_data: result/sample
+
+# The vocabulary location
+src_vocab: /content/drive/MyDrive/opennmt-tf/vocabulary/train.prepared.vocab.vi
+tgt_vocab: /content/drive/MyDrive/opennmt-tf/vocabulary/train.prepared.vocab.en
+# Overwrite the old files?
+overwrite: True
+
+# Corpus location
+data:
+    corpus_1:
+        path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/train.prepared.vi
+        path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/train.prepared.en
+        train_alignments: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/forward.align
+    valid:
+        path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.vi
+        path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.en
+
+params:
+  guided_alignment_type: ce
+  guided_alignment_weight: 1
