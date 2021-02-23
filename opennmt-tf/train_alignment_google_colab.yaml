@@ -7,10 +7,10 @@ data:
     corpus_1:
         path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/train.prepared.vi
         path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/train.prepared.en
-        train_alignments: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/forward.align
     valid:
         path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.vi
         path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.en
+    train_alignments: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/forward.align
 
 params:
   guided_alignment_type: ce
