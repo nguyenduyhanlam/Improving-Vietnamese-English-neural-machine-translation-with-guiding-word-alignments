@@ -16,7 +16,7 @@ world_size: 1
 gpu_ranks: [0]
 
 # Where to save the checkpoints
-save_model: /content/drive/MyDrive/opennmt-tf/result/model
+save_model: /content/drive/MyDrive/opennmt-tf/result/model_novalid
 save_checkpoint_steps: 10000
 keep_checkpoint: 10
 seed: 3435
