@@ -10,6 +10,9 @@ from nltk.tokenize import word_tokenize
 import html
 import re
 
+LIMIT_LENGTH = 100
+LIMIT_RATIO = 1.5
+
 SOURCE_FILE = 'data/train.clean.vi'
 TARGET_FILE = 'data/train.clean.en'
 COMBINE_FILE = 'opennmt-tf/train.clean.vi-en'
@@ -26,6 +29,9 @@ TEST_TARGET = 'data/tst2013.true.en'
 TEST_SOURCE_PREPARED_FILE = 'opennmt-tf/tst2013.prepared.vi'
 TEST_TARGET_PREPARED_FILE = 'opennmt-tf/tst2013.prepared.en'
 
+def filterPair(s):
+    return len(s.split(' ')) <= LIMIT_LENGTH
+        
 # Normalize the string (marks and words are seperated, words don't contain accents,...)
 def normalizeString(s):
     s = html.unescape(s)
@@ -40,13 +46,28 @@ def normalizeString(s):
 source_text = []
 with open(SOURCE_FILE, encoding="utf8") as file:
     for line in file:
-        source_text.append(normalizeString(line))
+        if(not filterPair(line)):
+            continue
+        source_text.append(line)
 
 target_text = []
 with open(TARGET_FILE, encoding='utf8') as file:
     for line in file:
-        target_text.append(normalizeString(line))
+        if(not filterPair(line)):
+            continue
+        target_text.append(line)
 
+for source, target in zip(source_text, target_text):
+    source_length = len(source.split(' '))
+    target_length = len(target.split(' '))
+    if((source_length / target_length > LIMIT_RATIO) or
+       (target_length / source_length > LIMIT_RATIO)):
+        source_text.remove(source)
+        target_text.remove(target)
+    else:
+        source = normalizeString(source).rstrip()
+        target = normalizeString(target).rstrip()
+        
 valid_source_text = []
 with open(VALID_SOURCE, encoding="utf8") as file:
     for line in file:
@@ -94,11 +115,11 @@ with open(COMBINE_FILE, 'w', encoding='utf8') as file:
 # Print to file
 with open(SOURCE_PREPARED_FILE, 'w', encoding='utf8') as file:
     for item in source_text:
-        file.write("%s\n" % item)
+        file.write("%s" % item)
 
 with open(TARGET_PREPARED_FILE, 'w', encoding='utf8') as file:
     for item in target_text:
-        file.write("%s\n" % item)
+        file.write("%s" % item)
 
 with open(VALID_SOURCE_PREPARED_FILE, 'w', encoding='utf8') as file:
     for item in valid_source_text:
