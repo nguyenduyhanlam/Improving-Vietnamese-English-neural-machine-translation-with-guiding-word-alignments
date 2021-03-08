@@ -46,21 +46,19 @@ def normalizeString(s):
 source_text = []
 with open(SOURCE_FILE, encoding="utf8") as file:
     for line in file:
-        if(not filterPair(line)):
-            continue
         source_text.append(line)
 
 target_text = []
 with open(TARGET_FILE, encoding='utf8') as file:
     for line in file:
-        if(not filterPair(line)):
-            continue
         target_text.append(line)
 
 for source, target in zip(source_text, target_text):
     source_length = len(source.split(' '))
     target_length = len(target.split(' '))
-    if((source_length / target_length > LIMIT_RATIO) or
+    if((source_length > LIMIT_LENGTH) or
+       (target_length > LIMIT_LENGTH) or
+       (source_length / target_length > LIMIT_RATIO) or
        (target_length / source_length > LIMIT_RATIO)):
         source_text.remove(source)
         target_text.remove(target)
