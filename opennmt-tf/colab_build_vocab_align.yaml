@@ -16,6 +16,7 @@ data:
     valid:
         path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.vi
         path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.en
+        path_align: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/forward.align
 
 params:
   guided_alignment_type: ce
