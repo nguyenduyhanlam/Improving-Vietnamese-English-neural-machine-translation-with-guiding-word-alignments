@@ -13,6 +13,7 @@ data:
     valid:
         path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/valid.vi
         path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/valid.en
+        path_align: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/valid.align
         transforms: []
 
 # Train on a single GPU
