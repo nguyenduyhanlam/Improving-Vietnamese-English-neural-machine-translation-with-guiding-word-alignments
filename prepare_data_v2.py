@@ -18,6 +18,7 @@ TARGET_PREPARED_FILE = 'opennmt-tf/train.prepared.en'
 
 VALID_SOURCE = 'data/tst2012.true.vi'
 VALID_TARGET = 'data/tst2012.true.en'
+COMBINE_VALID_FILE = 'opennmt-tf/valid.clean.vi-en'
 VALID_SOURCE_PREPARED_FILE = 'opennmt-tf/tst2012.prepared.vi'
 VALID_TARGET_PREPARED_FILE = 'opennmt-tf/tst2012.prepared.en'
 
@@ -75,20 +76,30 @@ def InsertSpace(token):
     
     return result.rstrip()
 
-combine_text = []
-for source, target in zip(source_text, target_text):
-    source_tokenize = word_tokenize(source)
-    target_tokenize = word_tokenize(target)
-    source_raw = InsertSpace(source_tokenize)
-    target_raw = InsertSpace(target_tokenize)
-    combine_raw = source_raw + ' ||| ' + target_raw
-    combine_text.append(combine_raw)
+def GenerateCombineText(source, target):
+    combine = []
+    for source, target in zip(source, target):
+        source_tokenize = word_tokenize(source)
+        target_tokenize = word_tokenize(target)
+        source_raw = InsertSpace(source_tokenize)
+        target_raw = InsertSpace(target_tokenize)
+        combine_raw = source_raw + ' ||| ' + target_raw
+        combine.append(combine_raw)
+    return combine
+    
+combine_text = GenerateCombineText(source_text, target_text)
+combine_valid_text = GenerateCombineText(valid_source_text, valid_target_text)
 
 print(combine_text[0])
 
 # Print to file
 with open(COMBINE_FILE, 'w', encoding='utf8') as file:
     for item in combine_text:
+        file.write("%s\n" % item)
+ 
+# Print to file
+with open(COMBINE_VALID_FILE, 'w', encoding='utf8') as file:
+    for item in combine_valid_text:
         file.write("%s\n" % item)
         
 # Print to file

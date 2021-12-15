@@ -5,14 +5,14 @@ tgt_vocab: /content/drive/MyDrive/opennmt-tf/vocabulary/train.prepared.vocab.en
 # Corpus location
 data:
     corpus_1:
-        path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/train.prepared.vi
-        path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/train.prepared.en
-        path_align: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/forward.align
+        path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/train.vi
+        path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/train.en
+        path_align: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/combine.align
         transforms: []
         weight: 1
     valid:
-        path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.vi
-        path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/tst2012.prepared.en
+        path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/valid.vi
+        path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/valid.en
         transforms: []
 
 # Train on a single GPU
@@ -21,12 +21,12 @@ gpu_ranks: [0]
 
 # Where to save the checkpoints
 save_model: /content/drive/MyDrive/opennmt-tf/result/model
-save_checkpoint_steps: 20000
+save_checkpoint_steps: 10000
 keep_checkpoint: 10
 seed: 3435
-train_steps: 20000
+train_steps: 10000
 valid_steps: 10000
-warmup_steps: 8000
+warmup_steps: 4000
 report_every: 100
 
 decoder_type: transformer
@@ -42,7 +42,7 @@ optim: adam
 adam_beta1: 0.9
 adam_beta2: 0.998
 decay_method: noam
-learning_rate: 2.0
+learning_rate: 0.00003
 max_grad_norm: 0.0
 
 batch_size: 4096
