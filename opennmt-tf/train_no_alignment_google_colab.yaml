@@ -38,7 +38,7 @@ optim: adam
 adam_beta1: 0.9
 adam_beta2: 0.998
 decay_method: noam
-learning_rate: 0.00003
+learning_rate: 3.0
 max_grad_norm: 0.0
 
 batch_size: 4096
