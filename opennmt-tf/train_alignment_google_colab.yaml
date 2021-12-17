@@ -7,10 +7,14 @@ data:
     corpus_1:
         path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/train.vi
         path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/train.en
-        path_align: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/opennmt-tf/combine.align
+        path_align: /content/drive/MyDrive/opennmt-tf/Alignment/forward.talp
         transforms: []
         weight: 1
-    
+    valid:
+        path_src: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/valid.vi
+        path_tgt: /content/Improving-Vietnamese-English-neural-machine-translation-with-guiding-word-alignments/dataset/valid.en
+        path_align: /content/drive/MyDrive/opennmt-tf/Alignment/valid.talp
+        transforms: []
 
 # Train on a single GPU
 world_size: 1
